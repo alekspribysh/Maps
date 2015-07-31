@@ -1,18 +1,17 @@
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.junit.After;
-import org.junit.Before;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+
 
 /**
  * Created by aprybysh on 6/27/15.
@@ -41,7 +40,7 @@ public class Test {
      * 'iPhone Simulator' device and 'safari' app.
      * @throws Exception
      */
-    @Before
+    @BeforeTest
     public void setUp() throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 5");
@@ -58,23 +57,23 @@ public class Test {
      *
      * @throws Exception
      */
-    @org.junit.Test
+    @org.testng.annotations.Test
     public void runTest() throws Exception {
         driver.get("http://saucelabs.com/test/guinea-pig");
         Thread.sleep(1000);
         WebElement idElement = driver.findElement(By.id("i_am_an_id"));
-        assertNotNull(idElement);
-        assertEquals("I am a div", idElement.getText());
+        Assert.assertNotNull(idElement);
+        Assert.assertEquals("I am a div", idElement.getText());
         WebElement commentElement = driver.findElement(By.id("comments"));
-        assertNotNull(commentElement);
+        Assert.assertNotNull(commentElement);
         commentElement.sendKeys("This is an awesome comment");
         WebElement submitElement = driver.findElement(By.id("submit"));
-        assertNotNull(submitElement);
+        Assert.assertNotNull(submitElement);
         submitElement.click();
         Thread.sleep(7000);
         WebElement yourCommentsElement = driver.findElement(By.id("your_comments"));
-        assertNotNull(yourCommentsElement);
-        assertTrue(driver.findElement(By.id("your_comments")).getText().contains("This is an awesome comment"));
+        Assert.assertNotNull(yourCommentsElement);
+        Assert.assertTrue(driver.findElement(By.id("your_comments")).getText().contains("This is an awesome comment"));
 
         System.out.println(driver.getCurrentUrl());
     }
