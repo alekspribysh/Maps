@@ -1,20 +1,22 @@
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.junit.*;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.Assert;
+import org.testng.annotations.*;
 
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -22,9 +24,9 @@ import static org.junit.Assert.assertTrue;
  */
 public class Android {
 
-    public  WebDriver driver;
+    public  AndroidDriver driver;
 
-    @Before
+    @BeforeTest
     public void setUp () throws MalformedURLException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -34,11 +36,19 @@ public class Android {
         // capabilities.setCapability("app", "/Users/aprybysh/Desktop/com.google.android.apps.maps.apk");
         capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, "com.google.android.apps.maps");
         capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, "com.google.android.maps.MapsActivity");
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities) {
+            public WebElement scrollTo(String s) {
+                return null;
+            }
+
+            public WebElement scrollToExact(String s) {
+                return null;
+            }
+        };
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     }
-    @org.junit.Test
+    @org.testng.annotations.Test
     public void pizza ()  {
 
 
@@ -59,6 +69,13 @@ public class Android {
         e2.click();
         WebElement e3 =driver.findElement(By.id("com.google.android.apps.gmm:id/title"));
         System.out.printf(e3.getText().toString());
+        Assert.assertTrue(e3.getText().contains("Pizza"));
+        System.out.printf("Pass");
+        e3.click();
+
+
+     //  driver.resetApp();
+
 
     }
 
