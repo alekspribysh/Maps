@@ -51,7 +51,7 @@ public class Tutorial1 {
                 "/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.ImageView[1]"));
         e2.click();
 
-        e2.click();
+
 
 
     }
