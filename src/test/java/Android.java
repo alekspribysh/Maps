@@ -75,10 +75,11 @@ public class Android {
                 "/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]"));
         e4.swipe(SwipeElementDirection.LEFT, 10, 20, 1000);
 
-          driver.resetApp();
+        driver.resetApp();
 
 
     }
+
     //Long press and double touch(wait)
     @Test
     public void MultiGestureSingleActionTest() throws InterruptedException {
@@ -89,7 +90,7 @@ public class Android {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("com.google.android.apps.gmm:id/watermark_image")));
         System.out.println("Passed!!!!!!!");
         MultiTouchAction multiTouch = new MultiTouchAction(driver);
-        TouchAction action0 = new TouchAction(driver).longPress(400,1002,3000);
+        TouchAction action0 = new TouchAction(driver).longPress(400, 1002, 3000);
         multiTouch.add(action0).perform();
         //multiTouch.perform();
 //        Assert.assertEquals(driver.findElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]" +
@@ -97,8 +98,8 @@ public class Android {
 //                "/android.widget.FrameLayout[1]/android.support.v7.widget.RecyclerView[1]/android.widget.ViewSwitcher[1]/android.widget.FrameLayout[1]" +
 //                "/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]\n").getText().toString(), "US-101");
         MultiTouchAction multiTouch1 = new MultiTouchAction(driver);
-        TouchAction action1 = new TouchAction(driver).tap(400,1200);
-        TouchAction action2 = new TouchAction(driver).tap(300,1300);
+        TouchAction action1 = new TouchAction(driver).tap(400, 1200);
+        TouchAction action2 = new TouchAction(driver).tap(300, 1300);
         multiTouch1.add(action1);
         multiTouch1.add(action2);
         multiTouch1.perform();
@@ -107,6 +108,18 @@ public class Android {
         Thread.sleep(5000);
         driver.closeApp();
 
+
+    }
+
+
+    //Move
+    @Test
+    public void MultiGestureSingleAction_Move () throws InterruptedException {
+
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("com.google.android.apps.gmm:id/watermark_image")));
+        System.out.println("Passed!!!!!!!");
+        TouchAction action0 = new TouchAction(driver).longPress(50, 1000, 3000).moveTo(1000, 1000).release().perform();
 
     }
 
