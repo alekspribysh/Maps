@@ -22,6 +22,7 @@ import java.net.MalformedURLException;
  */
 public class SideMenu {
 
+
     public AndroidDriver driver;
 
     @BeforeClass
