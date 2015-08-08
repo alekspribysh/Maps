@@ -41,4 +41,20 @@ public class TestBasePage {
     }
 
 
+    @Test
+    public void findElements1(){
+
+        Assert.assertNotNull(base.searchbox(driver));
+        Assert.assertNotNull(base.menu(driver));
+        Assert.assertNotNull(base.microphone(driver));
+        Assert.assertNotNull(base.explore(driver));
+        Assert.assertNotNull(base.star(driver));
+        Assert.assertNotNull(base.watermark(driver));
+        Assert.assertNotNull(base.myLocation(driver));
+        Assert.assertNotNull(base.fabDirection(driver));
+        Assert.assertTrue(base.fabDirection(driver).isDisplayed());
+
+    }
+
+
 }

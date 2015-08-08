@@ -42,7 +42,7 @@ public class Android {
         capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, "com.google.android.apps.maps");
         capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY, "com.google.android.maps.MapsActivity");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     //Find and swipe element
@@ -50,15 +50,16 @@ public class Android {
     public void pizza() {
 
 
-        MobileElement e = (MobileElement) driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]" +
-                "/android.widget.LinearLayout[1]/android.view.View[1]/android.widget.FrameLayout[3]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]" +
-                "/android.widget.LinearLayout[1]/android.widget.EditText[1]/android.widget.ImageView[1]"));
-        e.click();
-        MobileElement e1 = (MobileElement) driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]" +
-                "/android.widget.LinearLayout[1]/android.view.View[1]/android.widget.FrameLayout[2]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]" +
-                "/android.widget.LinearLayout[1]/android.widget.EditText[1]/android.widget.EditText[1]"));
-        e1.click();
-        e1.sendKeys("pizza");
+        MobileElement e = (MobileElement) driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/" +
+                "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/" +
+                "android.widget.LinearLayout[1]/android.view.View[1]/android.widget.FrameLayout[4]/android.widget.FrameLayout[1]/" +
+                "android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.EditText[1]/android.widget.TextView[1]"));
+        e.sendKeys("pizza");
+//        MobileElement e1 = (MobileElement) driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]" +
+//                "/android.widget.LinearLayout[1]/android.view.View[1]/android.widget.FrameLayout[2]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]" +
+//                "/android.widget.LinearLayout[1]/android.widget.EditText[1]/android.widget.EditText[1]"));
+//        e1.click();
+       // e.sendKeys("pizza");
         MobileElement e2 = (MobileElement) driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]" +
                 "/android.widget.LinearLayout[1]/android.view.View[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]" +
                 "/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]" +

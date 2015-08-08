@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestAll">
+
+    <test name="order">
+        <classes>
+            <class name="andr.tests.TestBasePage">
+            <methods>
+                <include name="findElements"/>
+                <exclude name="findElements1" />
+            </methods>
+            </class>
+
+        </classes>
+
+    </test>
+
+    <!--<test name="database">-->
+    <!--<classes>-->
+    <!--<class name="com.mkyong.testng.examples.suite.TestConfig" />-->
+    <!--<class name="com.mkyong.testng.examples.suite.TestDatabase" />-->
+    <!--</classes>-->
+    <!--</test>-->
+
+</suite>
