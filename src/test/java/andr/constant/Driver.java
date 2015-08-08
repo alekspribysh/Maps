@@ -19,7 +19,7 @@ public class Driver {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "5.0.1");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "5.0.2");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Aleks");
         // capabilities.setCapability("app", "/Users/aprybysh/Desktop/com.google.android.apps.maps.apk");
         capabilities.setCapability(MobileCapabilityType.APP_PACKAGE, "com.google.android.apps.maps");

@@ -6,8 +6,9 @@
         <classes>
             <class name="andr.tests.TestBasePage">
             <methods>
-                <include name="findElements"/>
+                <include name="searchBusines"/>
                 <exclude name="findElements1" />
+                <exclude name="findElements" />
             </methods>
             </class>
 
