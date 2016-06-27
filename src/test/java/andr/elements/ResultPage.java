@@ -36,5 +36,16 @@ public class ResultPage {
         return rating;
     }
 
+    public  MobileElement labelIS (AndroidDriver driver){
+
+        MobileElement label = (MobileElement) driver.findElement(By.xpath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/" +
+                "android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.support.v4.widget.DrawerLayout[1]/" +
+                "android.widget.LinearLayout[1]/android.view.View[1]/android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/" +
+                "android.widget.FrameLayout[1]/android.support.v7.widget.RecyclerView[1]/android.widget.ViewSwitcher[1]/android.widget.FrameLayout[1]" +
+                "/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/" +
+                "android.widget.TextView[1]"));
+        return label;
+    }
+
 
 }

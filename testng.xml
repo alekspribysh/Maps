@@ -3,6 +3,8 @@
 <suite name="TestAll">
 
     <test name="order">
+        <parameter name="searchPar" value="pizza"></parameter>
+        <parameter name="searchPar1" value="home"></parameter>
         <classes>
             <class name="andr.tests.TestBasePage">
             <methods>
